@@ -1,4 +1,4 @@
 lunartracker
 ============
 
-a modern tracker for web and local
+a modern tracker for web
