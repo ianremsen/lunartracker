@@ -1,0 +1,322 @@
+@font-face {
+  font-family: LibSans;
+  src: url(LibSans.ttf);
+}
+
+* {
+  border-radius: 0;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: #152935;
+  color: #C0E6FF;
+  font-family: LibSans;
+}
+
+h1 {
+  width: 100%;
+  text-align: center;
+  font-size: 40px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: #5AAAFA;
+  color: #152935;
+  margin: 0;
+}
+
+h2 {
+  width: 100%;
+  text-align: center;
+  font-size: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: #325C80;
+  font-weight: 400;
+  margin: 0;
+  margin-bottom: 20px;
+}
+
+#alpha {
+  display: inline;
+  font-size: 16px;
+  color: #325C80;
+}
+
+.startbutton {
+  color: #dfe9e9;
+  border: solid 2px #dfe9e9;
+  background-color: #0d1111;
+  text-align: center;
+  font-size: 28px;
+  width: 280px;
+  padding: 7px;
+  margin: auto;
+  margin-top: 6px;
+}
+
+.buttonhover {
+  color: #0d1111;
+  background-color: #dfe9e9;
+}
+
+#menubar {
+  background-color: #010205;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3.5%;
+  text-align: center;
+  font-size: 18px;
+  width: 100%;
+  font-weight: 700;
+  color: #c8d2d2;
+}
+
+#buttons {
+  padding: 10px;
+  top: 3.5%;
+  left: 0;
+  position: fixed;
+  background-color: #325C80;
+  width: 20%;
+  height: 33%;
+  float: left;
+}
+
+#instruments {
+  padding: 5px;
+  top: 34.5%;
+  left: 0;
+  position: fixed;
+  background-color: #264A60;
+  width: 20%;
+  height: 33%;
+  float: left;
+}
+
+#samples {
+  padding: 5px;
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  background-color: #1D3649;
+  width: 20%;
+  height: 33%;
+  float: left;
+}
+
+#traybutton {
+  text-align: center;
+  margin: auto;
+  border-bottom: none;
+  height: 20px;
+  width: 40px;
+  position: fixed;
+  bottom: 0;
+  left: 25%;
+}
+
+#tray {
+  z-index: -1;
+  padding: 5px;
+  position: fixed;
+  left: 20%;
+  bottom: -33%;
+  width: 80%;
+  height: 33%;
+}
+
+.tab1 {
+  background-color: #4178BE;
+}
+
+.tab2 {
+  background-color: #E71D32;
+}
+
+.tab3 {
+  background-color: #4B8400;
+}
+
+#leftTab {
+  text-align: center;
+  display: inline;
+  color: #C0E6FF;
+  opacity: .5;
+  background-color: #333;
+  height: 25px;
+  width: 25px;
+}
+
+#rightTab {
+  text-align: center;
+  display: inline;
+  color: #C0E6FF;
+  opacity: .5;
+  background-color: #333;
+  height: 25px;
+  width: 25px;
+}
+
+#tabnum {
+  display: inline;
+}
+
+#tabnum,.name {
+  margin-left: 5px;
+  font-weight: 700;
+}
+
+.ctrlbtn {
+  display: inline-block;
+  font-weight: 700;
+  text-align: center;
+  color: #dfe9e9;
+  border: solid 1px #dfe9e9;
+  height: 20px;
+  font-size: 14px;
+  padding-left: 3px;
+  padding-right: 3px;
+}
+
+.ctrlbuttonhover {
+  color: #0d1111;
+  background-color: #dfe9e9;
+}
+
+.no-close .ui-dialog-titlebar-close {
+  display: none;
+}
+
+.ui-widget-header {
+  background: #010205;
+  border: 0;
+  font-weight: 400;
+}
+
+.ui-dialog {
+  border: solid 1px #dfe9e9;
+}
+
+.ui-dialog .ui-dialog-titlebar {
+  padding: .1em .5em;
+  position: relative;
+  font-size: 1em;
+}
+
+.ui-dialog-title {
+  margin: auto;
+  height: 3.5%;
+  font-size: 18px;
+  width: 100%;
+  height: 100%;
+  font-weight: 700;
+  color: #c8d2d2;
+}
+
+.ui-dialog-content {
+  padding: 8px;
+  background-color: #264A60;
+}
+
+.ui-dialog-buttonset {
+  background-color: #1D3649;
+  padding: 2px;
+}
+
+.ui-button {
+  background-color: #152935;
+  margin: 3px;
+  font-weight: 700;
+  text-align: center;
+  color: #dfe9e9;
+  border: solid 1px #dfe9e9;
+  width: 50px;
+  height: 22px;
+  font-size: 14px;
+}
+
+input {
+  text-align: center;
+  border: solid 2px #dfe9e9;
+  background-color: #152935;
+  color: #dfe9e9;
+  margin: auto;
+  display: block;
+  height: 40px;
+  width: 300px;
+}
+
+#wrapper {
+position:absolute;
+  overflow: auto;
+    left: 20%;
+  top: 3.5%;
+  height: 96.5%;
+    z-index: -2;
+}
+
+#mainarea {
+    display: flex;
+    table-layout: fixed;
+    height: 100%;
+    width: 100%;
+}
+
+.column {
+  display: block;
+  border-left: solid 1px #010205;
+  border-right: solid 1px #010205;
+  background-color: #152935;
+  width: 130px;
+  height: 100%;
+}
+.colnum {
+text-align:center;
+position:relative;
+top:0px;
+width:100%;
+height: 3.5%;
+background-color: #1D3649;
+}
+.numsteps {
+height:96.5%;
+}
+.line {
+display:flex;
+background-color: #325C80;
+}
+.step{
+display:inline-block;
+background-color: #264A60;
+width:15%;
+font-family:monospace;
+text-align:center;
+font-size:12px;
+}
+.row{
+margin-left:5px;
+display:inline;
+top:0px;
+width:85%;
+font-family:monospace;
+font-size:12px;
+}
+.note, .instrument, .volume, .effects {
+display:inline;
+}
+.selected {
+background-color:#00B4A0
+}
+.inputting {
+background-color:#E71D32
+}
