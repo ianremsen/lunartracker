@@ -256,20 +256,24 @@ input {
   width: 300px;
 }
 
+#set {
+  text-align: center;
+}
+
 #wrapper {
-position:absolute;
+  position: absolute;
   overflow: auto;
-    left: 20%;
+  left: 20%;
   top: 3.5%;
   height: 96.5%;
-    z-index: -2;
+  z-index: -2;
 }
 
 #mainarea {
-    display: flex;
-    table-layout: fixed;
-    height: 100%;
-    width: 100%;
+  display: flex;
+  table-layout: fixed;
+  height: 100%;
+  width: 100%;
 }
 
 .column {
@@ -280,43 +284,68 @@ position:absolute;
   width: 130px;
   height: 100%;
 }
+
 .colnum {
-text-align:center;
-position:relative;
-top:0px;
-width:100%;
-height: 3.5%;
-background-color: #1D3649;
+  text-align: center;
+  position: relative;
+  top: 0px;
+  width: 100%;
+  height: 3.5%;
+  background-color: #1D3649;
 }
+
 .numsteps {
-height:96.5%;
+  height: 96.5%;
 }
+
 .line {
-display:flex;
-background-color: #325C80;
+  display: flex;
+  background-color: #325C80;
 }
-.step{
-display:inline-block;
-background-color: #264A60;
-width:15%;
-font-family:monospace;
-text-align:center;
-font-size:12px;
+
+.step {
+  display: inline-block;
+  background-color: #264A60;
+  width: 15%;
+  font-family: monospace;
+  text-align: center;
+  font-size: 12px;
 }
-.row{
-margin-left:5px;
-display:inline;
-top:0px;
-width:85%;
-font-family:monospace;
-font-size:12px;
+
+.row, .samplerow, .instrumentrow {
+  margin-left: 5px;
+  display: inline;
+  top: 0px;
+  width: 85%;
+  font-family: monospace;
+  font-size: 12px;
 }
+
 .note, .instrument, .volume, .effects {
-display:inline;
+  display: inline;
 }
+
 .selected {
-background-color:#00B4A0
+  background-color: #00B4A0;
 }
-.inputting {
-background-color:#E71D32
+
+.numsamples, .numinstruments {
+  height: 75%;
+  overflow: auto;
+  margin-top: 15px;
+}
+
+.samplestep, .instrumentstep {
+  display: inline-block;
+  width: 8%;
+  font-family: monospace;
+  text-align: center;
+  font-size: 12px;
+  background-color: #152935;
+}
+
+#tempo {
+  margin-right: 10px;
+  font-weight: bold;
+  display: inline;
 }
