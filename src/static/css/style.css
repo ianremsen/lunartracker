@@ -281,7 +281,7 @@ input {
   border-left: solid 1px #010205;
   border-right: solid 1px #010205;
   background-color: #152935;
-  width: 130px;
+  width: 120px;
   height: 100%;
 }
 
@@ -298,9 +298,13 @@ input {
   height: 96.5%;
 }
 
-.line {
+.line:nth-of-type(odd) {
   display: flex;
   background-color: #325C80;
+}
+.line:nth-of-type(even) {
+  display: flex;
+  background-color: #4178BE;
 }
 
 .step {
@@ -321,10 +325,18 @@ input {
   font-size: 12px;
 }
 
-.note, .instrument, .volume, .effects {
+.noteinput {
   display: inline;
 }
-
+.instrument {
+color:  #FFD2FF;
+}
+.volume {
+color: #C8F08F;
+}
+.effects {
+color: #FFD791;
+}
 .selected {
   background-color: #00B4A0;
 }
@@ -344,8 +356,8 @@ input {
   background-color: #152935;
 }
 
-#tempo {
+#tempo , #title, #author{
   margin-right: 10px;
   font-weight: bold;
-  display: inline;
+  display: inline-block;
 }
