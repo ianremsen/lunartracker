@@ -1,4 +1,4 @@
-﻿// LunarTracker v0.0.4e
+// LunarTracker v0.0.4g
 $(document).ready(function () {
   readFile("modules/sample.ltm");
 });
@@ -37,30 +37,78 @@ function leftPad(number, targetLength) {
 
 function readFile(filename) {
   $.getJSON(filename, function (module) {
-    var numColumns = module.structure.columns;
+    var numColumns = module.structure.num_columns;
     var tempo = module.structure.tempo;
+    var version = module.metadata.version;
+    var title = module.metadata.title;
+    var author = module.metadata.author;
     var numSteps = module.structure.num_steps;
+    var numNotes = module.structure.num_notes;
     var numInstruments = module.structure.num_instruments;
     var instruments = module.instruments;
     var numSamples = module.structure.num_samples;
     var samples = module.samples;
+    var notes = module.notes;
     createColumn(numColumns, numSteps);
     $('#tempo').html(tempo);
+    $('#title').html(title);
+    $('#author').html(author);
     $('#instruments').append('<div class="numinstruments"></div>');
     for (var i = 0; i < numInstruments; i++) {
-      var j = leftPad(i, 4);
+      var j = leftPad(i, 2);
       var name = instruments[j].name;
       var step = '<div class="line"><div class="instrumentstep">' + leftPad(i, 2) + '</div><div class="instrumentrow">' + name + '</div></div>';
       $('.numinstruments').append(step);
     }
     $('#samples').append('<div class="numsamples"></div>');
     for (var i = 0; i < numSamples; i++) {
-      var j = leftPad(i, 4);
+      var j = leftPad(i, 2);
       var name = samples[j].name;
       var step = '<div class="line"><div class="samplestep">' + leftPad(i, 2) + '</div><div class="samplerow">' + name + '</div></div>';
       $('.numsamples').append(step);
     }
+    writeNotes(numNotes, module.notes);
   });
+}
+
+function writeNotes(numNotes, notes) {
+  for (var i = 0; i < numNotes; i++) {
+    var j = leftPad(i, 5);
+    var noteColumn = notes[j].column;
+    var notePos = notes[j].position;
+    var notePitch = notes[j].pitch;
+    var noteInstrument = notes[j].instrument;
+    var noteVol = notes[j].volume;
+    var noteEffect = notes[j].effect;
+    var thisColumn = 'div.column:nth-child(' + noteColumn + ') ';
+    var thisPos = thisColumn + '> div:nth-child(2) > div:nth-child(' + notePos + ') ';
+    var thisPitch = thisPos + '> div:nth-child(2) > div:nth-child(1)';
+    var thisInst = thisPos + '.instrument';
+    var thisVol = thisPos + '.volume';
+    var thisFX = thisPos + '.effects';
+    $(thisInst).html(noteInstrument);
+    $(thisVol).html(noteVol);
+    $(thisFX).html(noteEffect);
+    pitchClasses = {
+      0: "C-",
+      1: "C♯",
+      2: "D-",
+      3: "D♯",
+      4: "E-",
+      5: "F-",
+      6: "F♯",
+      7: "G-",
+      8: "G♯",
+      9: "A-",
+      10: "A♯",
+      11: "B-"
+    };
+    var pitchClass = pitchClasses[notePitch % 12];
+    var octavenum = Math.floor(notePitch / 12);
+    var octave = octavenum.toString();
+    var finalPitch = pitchClass + octave;
+    $(thisPitch).html(finalPitch);
+  }
 }
 
 function createColumn(numCol, numSteps) {
@@ -74,7 +122,7 @@ function createColumn(numCol, numSteps) {
 function createSteps(number) {
   for (var i = 0; i < number; i++) {
     var step = '<div class="line"><div class="step">' + leftPad(i, 2) + '</div>';
-    createSteps.row = '<div class="row"><div class="note noteinput">---</div> <div class="instrument noteinput">--</div> <div class="volume noteinput">--</div> <div class="effects noteinput">---</div></div></div>';
+    createSteps.row = '<div class="row"><div class="note noteinput">---</div> <div class="instrument noteinput">--</div> <div class="volume noteinput">-</div> <div class="effects noteinput">---</div></div></div>';
     $('.numsteps').append(step);
   }
   $('.step').after(createSteps.row);
@@ -125,20 +173,20 @@ $("#traybutton").click(function () {
     $(this).removeClass('toggletray');
     $(this).html("▲");
     $(this).animate({
-      bottom: "0px",
+      bottom: "0px"
     }, 500);
     $('#tray').animate({
-      bottom: "-33%",
+      bottom: "-33%"
     }, 500);
   } else if ($this.hasClass("trayclick")) {
     $(this).addClass('toggletray');
     $(this).removeClass('trayclick');
     $(this).html("▼");
     $(this).animate({
-      bottom: "33%",
+      bottom: "33%"
     }, 500);
     $('#tray').animate({
-      bottom: "0px",
+      bottom: "0px"
     }, 500);
   }
 });
