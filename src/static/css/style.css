@@ -317,7 +317,7 @@ input {
 }
 
 .row, .samplerow, .instrumentrow {
-  margin-left: 5px;
+  padding-left: 5px;
   display: inline;
   top: 0px;
   width: 85%;
@@ -337,8 +337,12 @@ color: #C8F08F;
 .effects {
 color: #FFD791;
 }
-.selected {
-  background-color: #00B4A0;
+.selectedrow {
+  background-color: #734098;
+}
+
+.selectednoteinput{
+  background-color: #412356;
 }
 
 .numsamples, .numinstruments {
