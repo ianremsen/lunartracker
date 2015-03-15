@@ -325,7 +325,7 @@ input {
   font-size: 12px;
 }
 
-.noteinput {
+.noteinput, .inst_1, .inst_2, .fx1, .fx2, .fx3 {
   display: inline;
 }
 .instrument {
